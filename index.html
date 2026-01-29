@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hand-Controlled Particle System</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="loader">LOADING AI...<br><small>ALLOW CAMERA ACCESS</small></div>
+
+    <div id="top-info">
+        CURRENT SHAPE: <span id="shape-name">FIREWORK (SPHERE)</span>
+    </div>
+    
+    <div id="toggle-button" onclick="toggleControls()">i</div>
+
+    <div id="controls-box">
+        <h3>CONTROLS</h3>
+        <div id="instructions">
+            - OPEN/CLOSE HAND:-> EXPANDS/CONTRACTS SHAPE.<br>
+            - PINCH (THUMB & INDEX):-> SWITCHES SHAPE.<br>
+            - MOVE HAND:-> ROTATES PARTICLE SYSTEM.
+        </div>
+    </div>
+    
+    <div id="color-control-fixed">
+        COLOUR PALETTE:
+        <select id="color-select" onchange="updateColorPalette()">
+            <option value="cool_tones">BLUE/CYAN (DEFAULT)</option>
+            <option value="warm_fire">RED/FIRE TONES</option>
+            <option value="nature_emerald">GREEN/EMERALD</option>
+            <option value="retro_vaporwave">PINK/BLUE VAPORWAVE</option>
+            <option value="forest_deep">FOREST/MOSS</option>
+            <option value="gold_solar">GOLD/SOLAR FLARE</option>
+            <option value="midnight_nebula">MIDNIGHT/NEBULA</option>
+            <option value="bubblegum_pop">BUBBLEGUM/POP</option>
+        </select>
+    </div>
+
+    <canvas id="c"></canvas>
+
+    <div class="camera-container" id="webcam-container">
+        <video id="input_video"></video>
+        <canvas id="output_canvas" width="240" height="180"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

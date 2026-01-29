@@ -1,0 +1,205 @@
+/* ========================================
+   ROOT & BODY STYLING
+   ======================================== */
+
+:root {
+  --mc-default-accent: #00ffff;
+  --mc-dark: #333333;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #000;
+  font-family: 'Press Start 2P', monospace;
+  cursor: crosshair;
+}
+
+/* ========================================
+   MAIN CANVAS
+   ======================================== */
+
+#c {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ========================================
+   WEBCAM FEED & VIDEO ELEMENTS
+   ======================================== */
+
+.camera-container {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 240px;
+  height: 180px;
+  z-index: 10;
+  border: 4px groove var(--mc-default-accent);
+  border-radius: 4px;
+  overflow: visible; /* Allows characters to sit outside the top edge */
+  background: #000;
+  box-shadow: 0 0 20px var(--mc-default-accent);
+}
+
+#input_video {
+  display: none;
+}
+
+#output_canvas {
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+}
+
+/* ========================================
+   TOP BAR - Current Shape Display
+   ======================================== */
+
+#top-info {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 6px 6px var(--mc-dark), 0 0 15px var(--mc-default-accent);
+  z-index: 5;
+  font-size: 16px;
+  pointer-events: none;
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 2px solid var(--mc-default-accent);
+}
+
+#shape-name {
+  color: var(--mc-default-accent);
+  text-shadow: none;
+}
+
+/* ========================================
+   TOP RIGHT - Toggle Button
+   ======================================== */
+
+#toggle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--mc-default-accent);
+  border: 2px solid var(--mc-default-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+  line-height: 31px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--mc-default-accent);
+  pointer-events: all;
+  font-family: Arial, sans-serif;
+}
+
+/* ========================================
+   CONTROL BOX - Instructions Panel
+   ======================================== */
+
+#controls-box {
+  display: none;
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  width: 320px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 4px groove var(--mc-default-accent);
+  border-radius: 4px;
+  text-align: left;
+  z-index: 90;
+  box-shadow: 0 0 20px var(--mc-default-accent);
+  color: #ffffff;
+  font-size: 10px;
+  pointer-events: all;
+}
+
+#controls-box h3 {
+  margin-top: 0;
+  color: var(--mc-default-accent);
+  text-align: center;
+  font-size: 12px;
+  text-shadow: 2px 2px #000;
+  margin-bottom: 10px;
+}
+
+/* ========================================
+   COLOR CONTROL - FIXED TO BOTTOM RIGHT
+   ======================================== */
+
+#color-control-fixed {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 4px groove var(--mc-default-accent);
+  border-radius: 4px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 0 20px var(--mc-default-accent);
+  font-size: 10px;
+  color: #ffffff;
+  pointer-events: all;
+}
+
+#color-select {
+  padding: 5px 10px;
+  font-size: 10px;
+  border-radius: 3px;
+  background: #222;
+  color: var(--mc-default-accent);
+  border: 1px solid var(--mc-default-accent);
+  width: 100%;
+  margin-top: 5px;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+}
+
+/* ========================================
+   LOADER - Bottom Loading Text
+   ======================================== */
+
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--mc-default-accent);
+  font-size: 20px;
+  z-index: 20;
+  text-align: center;
+  text-shadow: 2px 2px #000;
+}
+
+/* ========================================
+   MINECRAFT CHARACTER IMAGES
+   ======================================== */
+
+.mc-char {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 11;
+  top: 0px;
+  transform: translateY(-70%);
+  image-rendering: pixelated;
+  border: 1px solid black;
+  background-color: #f0f0f0;
+}
